@@ -1,0 +1,204 @@
+@import '../../styles/variables';
+
+.accordion-header {
+  margin-bottom: 0;
+}
+.accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  background-color: $white;
+  border: 0;
+  border-radius: 0;
+  overflow-anchor: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+}
+.accordion-item {
+  background-color: $white;
+  border: 1px solid rgba(0,0,0,.125);
+
+  &:not(:first-of-type) {
+    border-top: 0;
+  }
+}
+
+.flat-accordion {
+  max-width: 740px;
+  margin: 0 auto;
+
+  .accordion-item {
+    margin-bottom: 21px;
+    border-radius: 0;
+    background: rgba(34,183,143,.1);
+    color: $white;
+    box-shadow: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    border: 2px solid #105252;
+    position: relative;
+    z-index: 1;
+    padding: 29px 23px 29px 19px;
+
+    &:nth-last-child(1) {
+      margin-bottom: 0
+    }
+
+    &:before,
+    &::after {
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+      content: "";
+      position: absolute;
+      background: $color-3;
+      z-index: -1
+    }
+
+    &::before {
+      width: calc(102% - 3rem);
+      height: calc(100% + 4px);
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      height: calc(110% - 3rem);
+      width: calc(100% + 4px);
+      left: -2px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:hover,
+    &.active {
+      border-color: $color-hover;
+      box-shadow: 0 0px 32px 0 rgba(34,183,143,.5);
+
+      &::before {
+        width: 0 !important
+      }
+
+      &::after {
+        height: 0 !important
+      }
+    }
+
+    .accordion-button {
+      position: relative;
+      background: rgba(0,0,0,0);
+      transform: translateY(0);
+      padding: 0;
+      transition: all .3s ease;
+      position: relative;
+      z-index: 1;
+      border-radius: 0 !important;
+      color: $white;
+      box-shadow: none;
+      font-size: 24px;
+      line-height: 1.33;
+      font-family: "Chakra Petch",sans-serif;
+      font-weight: 700;
+      text-transform: capitalize;
+      border-bottom: 1px solid rgba(3,253,203,.1);
+      padding-bottom: 15px;
+      margin-bottom: 16px;
+
+      &::after {
+        background-image: none;
+        content: "\276F";
+        font-weight: 500;
+        font-size: 25px;
+        color: $color-hover;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+        height: auto
+      }
+
+      &.collapsed {
+        border-bottom: 1px solid rgba(3,253,203,0);
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .accordion-collapse {
+      background: rgba(0,0,0,0);
+
+      .accordion-body {
+        padding: 0
+      }
+    }
+    
+    &.corner-box {
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+      padding: 28px 18px 11px;
+
+      &.toggle-title {
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+        border-bottom: 1px solid rgba(3,253,203,0);
+        padding-bottom: 16px;
+        margin-bottom: 0;
+        position: relative;
+        padding-right: 30px;
+
+        &::after {
+          -webkit-transition: all .3s ease;
+          -moz-transition: all .3s ease;
+          -ms-transition: all .3s ease;
+          -o-transition: all .3s ease;
+          transition: all .3s ease;
+          position: absolute;
+          right: 4px;
+          top: 0px;
+          content: "";
+          font-family: "Font Awesome 5 Pro";
+          font-weight: 500;
+          font-size: 25px;
+          color: $color-hover;
+        }
+
+        &:hover {
+          cursor: context-menu;
+        }
+      }
+    }
+
+    &.active {
+      .corner-box {
+        padding: 28px 18px;
+
+        .toggle-title {
+          margin-bottom: 16px;
+          border-bottom: 1px solid rgba(3,253,203,.1);
+
+          &::after {
+            transform: rotate(-180deg);
+          }
+        }
+      }
+    }
+
+  }
+}
+

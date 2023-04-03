@@ -1,0 +1,344 @@
+@import '../../styles/variables';
+
+.header {
+    .main {
+        background: transparent
+    }
+
+    background-color: transparent;
+    height: 108px;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 1000;
+    align-items: center;
+    display: flex;
+    width: 100%;
+
+    #site-header-inner {
+        align-items: center;
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+
+        .tf-button {
+            margin-left: auto
+        }
+    }
+}
+
+  
+  @media only screen and (max-width: $tablet-width) {
+    .header #site-header-inner .tf-button {
+      margin-right: 50px
+    }
+  }
+  
+  @media only screen and (max-width: $mobile-width) {
+    .header #site-header-inner .tf-button {
+      font-size: 14px;
+      padding: 10px
+    }
+  }
+  
+  .header .main-nav {
+    left: 31%;
+    letter-spacing: .6px;
+    padding-left: 4px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+  }
+  
+  @media only screen and (max-width: $desktop-width) {
+    .header .main-nav {
+      left: 21%
+    }
+  }
+  
+  .header.is-fixed {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1), inset 0 1px 0 #ececec;
+    height: 90px;
+    left: 0;
+    position: fixed;
+    transition: all .5s ease;
+    width: 100%;
+    z-index: 9999
+  }
+  
+  .header.is-fixed, .inner-page .header {
+    background-color: $bg-3
+  }
+  
+  #main-nav .menu {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start
+  }
+  
+  #main-nav .menu li {
+    margin-right: 23px;
+    position: relative
+  }
+  
+  #main-nav .menu li a {
+    color: $white;
+    display: block;
+    font-family: Chakra Petch, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    padding-bottom: 20px;
+    padding-right: 27px;
+    padding-top: 20px;
+    position: relative;
+    text-transform: uppercase
+  }
+  
+  #main-nav .menu li a.active, #main-nav .menu li a:hover {
+    color: $color-hover
+  }
+  
+  #main-nav .menu li:hover .sub-menu {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    visibility: visible
+  }
+  
+  #main-nav .menu li.menu-item-has-children > a:after {
+    color: $white;
+    content: "\276F";
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(90deg);
+    transition: all .3s ease
+  }
+  
+  #main-nav .menu li.menu-item-has-children > a:hover, #main-nav .menu li.menu-item-has-children > a:hover:after, #main-nav .menu li.menu-item.current-menu-item > a, #main-nav .menu li.menu-item.current-menu-item > a:after {
+    color: $color-hover
+  }
+  
+  #main-nav .sub-menu {
+    background: $white;
+    border-radius: 2px;
+    box-shadow: 0 0 32px 0 rgba(34, 183, 143, .5);
+    left: 0;
+    opacity: 0;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+    transition: all .3s ease;
+    visibility: hidden;
+    width: 200px;
+    z-index: 9999
+  }
+  
+  #main-nav .sub-menu li {
+    margin-right: 0
+  }
+  
+  #main-nav .sub-menu li a {
+    color: $bgr-body;
+    opacity: .9;
+    padding: 10px 20px
+  }
+  
+  #main-nav .sub-menu li:hover .sub-menu {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    visibility: visible
+  }
+  
+  #main-nav .sub-menu li.current-item a {
+    color: $color-hover;
+    opacity: 1
+  }
+  
+  @media only screen and (max-width: $tablet-width) {
+    #main-nav {
+      background-color: $bg-main;
+      box-shadow: 0 3px 16px rgba(47, 83, 109, .12);
+      height: 1000vh;
+      left: 0;
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+      transition: -webkit-transform .5s ease;
+      transition: transform .5s ease;
+      transition: transform .5s ease, -webkit-transform .5s ease;
+      width: 40%;
+      z-index: 999999
+    }
+  
+    #main-nav .sub-menu {
+      background: transparent;
+      padding: 15px 0
+    }
+  
+    #main-nav .sub-menu li a {
+      color: $white
+    }
+  
+    #main-nav.active {
+      -webkit-transform: translateX(0);
+      transform: translateX(0)
+    }
+  
+    #main-nav.active .menu li .sub-menu {
+      box-shadow: none;
+      display: none;
+      opacity: 1;
+      position: relative;
+      visibility: visible
+    }
+  
+    #main-nav.active .menu li .sub-menu:after {
+      display: none
+    }
+  
+    #main-nav.active .menu li.active .sub-menu {
+      display: block;
+      padding-bottom: 0;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      width: 100%
+    }
+  
+    #main-nav .menu {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-left: 0
+    }
+  
+    #main-nav .menu li {
+      border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+      padding: 15px 0;
+      width: 100%
+    }
+  
+    #main-nav .menu li a {
+      padding: 0 15px
+    }
+  
+    #main-nav .menu li ul li {
+      border-top: 1px solid hsla(0, 0%, 100%, .1);
+      padding: 10px 20px !important
+    }
+  
+    #main-nav .menu li ul li:last-child {
+      border: none
+    }
+  
+    #main-nav .menu li.menu-item-has-children > a:after {
+      content: "ï„‡";
+      font-family: Font Awesome\ 5 Pro;
+      font-weight: 300;
+      position: absolute;
+      right: 20px;
+      top: 40%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%)
+    }
+  
+    #main-nav .menu li.menu-item-has-children.active {
+      padding-bottom: 5px
+    }
+  }
+  
+  @media only screen and (max-width: $mobile-width) {
+    #main-nav {
+      width: 60%
+    }
+  }
+  
+  .mobile-button {
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+    height: 26px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: all .3s ease;
+    width: 26px
+  }
+  
+  .mobile-button span, .mobile-button:after, .mobile-button:before {
+    background-color: $white;
+    transition: all .3s ease
+  }
+  
+  .mobile-button:after, .mobile-button:before {
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    top: 50%;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    width: 100%
+  }
+  
+  .mobile-button span {
+    height: 3px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 200%;
+    top: 50%;
+    width: 100%
+  }
+  
+  .mobile-button:before {
+    -webkit-transform: translate3d(0, -7px, 0);
+    transform: translate3d(0, -7px, 0)
+  }
+  
+  .mobile-button:after {
+    -webkit-transform: translate3d(0, 7px, 0);
+    transform: translate3d(0, 7px, 0)
+  }
+  
+  .mobile-button.active span {
+    opacity: 0
+  }
+  
+  .mobile-button.active:before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+  }
+  
+  .mobile-button.active:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+  }
+  
+  @media only screen and (max-width: $tablet-width) {
+    .mobile-button {
+      display: block
+    }
+  }
+  
+  #header_main #header_main.main.is-fixed {
+    background-color: #190d3e
+  }
+  
+  .header.main.is-fixed .tf-button span.tl:after, .header.main.is-fixed .tf-button span.tl:before {
+    border-bottom: 16px solid #190d40 !important;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent
+  }
+  
